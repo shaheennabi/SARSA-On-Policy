@@ -1,4 +1,4 @@
 # Low-Resource_Language_Research
 
 
-onit ---after some months
+on-it ---after some months
