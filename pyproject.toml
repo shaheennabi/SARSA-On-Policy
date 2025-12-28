@@ -1,0 +1,7 @@
+[project]
+name = "sarsa-on-policy"
+version = "0.1.0"
+description = "this is the practical implementation of the on-policy algorithm for control in rl (model-free)"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
