@@ -1,8 +1,6 @@
 # SARSA from Scratch (Model-Free Reinforcement Learning)
 
-This repository contains a **from-scratch, modular implementation of SARSA**  
-(State–Action–Reward–State–Action), an **on-policy, model-free reinforcement learning**  
-algorithm, implemented on a custom **GridWorld environment built without any pre-made RL libraries**.
+This repository contains a **from-scratch, modular implementation of SARSA** (State–Action–Reward–State–Action), an **on-policy, model-free reinforcement learning** algorithm, implemented on a custom **GridWorld environment built without any pre-made RL libraries**.
 
 The focus of this project is **algorithmic clarity and correct temporal logic**, not performance or framework usage.
 
@@ -27,8 +25,7 @@ The goal is to **understand model-free control from first principles**.
 
 ## What SARSA is (core idea)
 
-SARSA is an **on-policy temporal-difference control algorithm**.  
-It learns the value of **the actions the agent actually takes**, not the actions that would be optimal under a greedy policy.
+SARSA is an **on-policy temporal-difference control algorithm**. It learns the value of **the actions the agent actually takes**, not the actions that would be optimal under a greedy policy.
 
 At each step, SARSA updates the value of the **current state–action pair** using the value of the **next state–action pair chosen by the same policy**.
 
@@ -38,18 +35,14 @@ This single detail is the defining difference between SARSA and Q-learning.
 
 ## SARSA update rule
 
-For a transition:  
-(s, a) → r → (s', a')
-
-```math
-Q(s, a) \leftarrow Q(s, a) + \alpha \left[ r + \gamma Q(s', a') - Q(s, a) \right]
-
-
-### SARSA update rule (continued)
+For a transition: (s, a) → r → (s', a')
+```
+Q(s, a) ← Q(s, a) + α[r + γQ(s', a') - Q(s, a)]
+```
 
 Where:
 - **α** is the learning rate
-- **γ** is the discount factor
+- **γ** is the discount factor  
 - **a'** is chosen using the **same policy** as **a**
 
 Because the next action comes from the same policy, SARSA is **on-policy**.
@@ -61,26 +54,25 @@ Because the next action comes from the same policy, SARSA is **on-policy**.
 ### Installation
 
 Install the only required dependency:
-
 ```bash
 pip install numpy
+```
 
 (Optional: use a virtual environment for isolation)
-
 ```bash
 python -m venv venv
 source venv/bin/activate          # On Windows: venv\Scripts\activate
 pip install numpy
-
+```
 
 No other external libraries or RL frameworks are needed.
 
 ### Running the training
 
 Execute the main training script:
-
 ```bash
 python train.py
+```
 
 You can customize hyperparameters directly in `train.py` or by modifying the `train_sarsa` function call (e.g., number of episodes, grid size, learning rate, etc.).
 
@@ -93,7 +85,10 @@ You can customize hyperparameters directly in `train.py` or by modifying the `tr
 
 Training typically converges well within 10,000–20,000 episodes on the default 5×5 grid.
 
-### Repository structure
+---
+
+## Repository structure
+```
 .
 ├── env.py          # GridWorld environment (dynamics only)
 ├── agent.py        # SARSA agent (Q-table + update rule)
@@ -101,10 +96,11 @@ Training typically converges well within 10,000–20,000 episodes on the default
 ├── train.py        # Training loop and execution entry point
 ├── README.md       # This file
 └── requirements.txt # (optional) lists numpy
+```
 
+---
 
-
-### Notes
+## Notes
 
 This implementation emphasizes:
 
